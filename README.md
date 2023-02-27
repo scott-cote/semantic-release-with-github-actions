@@ -41,17 +41,17 @@ name: Release npm package
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - uses: actions/setup-node@v1
         with:
-          node-version: "12.x"
+          node-version: "16.x"
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
